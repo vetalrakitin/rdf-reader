@@ -4,7 +4,7 @@
 
 Before start the project goto `docker-compose.yml` file and change your rdf's files location on line 27
 
-`docker-compose up -d`
+`docker-compose up -d --build`
 
 ## Mongodb
 
