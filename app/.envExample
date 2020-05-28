@@ -1,0 +1,5 @@
+FOLDER=/home/vitalii/Downloads/cache/epub
+REDIS_HOST=localhost
+REDIS_PORT=6379
+QNAME=RDF
+MONGODB=mongodb://localhost:27017/test

@@ -1,0 +1,47 @@
+version: "2"
+services:
+  arena:
+    build: arena
+    environment:
+      REDIS_PORT: 6379
+      REDIS_HOST: redis
+      PORT: 80
+      BASE_URL: /
+      QNAME: RDF
+    ports:
+      - "8082:80"
+    links:
+      - redis
+  app:
+    build: app
+    environment:
+      REDIS_PORT: 6379
+      REDIS_HOST: redis
+      QNAME: RDF
+      FOLDER: /app/data/
+      MONGODB: mongodb://db:27017/epub
+    links:
+      - redis
+      - db
+    volumes:
+      - /home/vitalii/Downloads/cache/epub:/app/data/
+  redis:
+    image: redis
+    ports:
+      - "6379:6379"
+    expose:
+      - "6379"
+  db:
+    image: mongo
+    ports:
+      - "27017:27017"
+    expose:
+      - "27017"
+  mongoexpress:
+    image: mongo-express
+    environment: 
+      ME_CONFIG_MONGODB_SERVER: db
+    links:
+      - db
+    ports:
+      - "8081:8081"
