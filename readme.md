@@ -2,6 +2,8 @@
 
 ## Run the project
 
+Before start the project goto `docker-compose.yml` file and change your rdf's files location on line 27
+
 `docker-compose up -d`
 
 ## Mongodb
@@ -9,6 +11,8 @@
 All data will be saved to mongodb.
 
 To look the collection open the link at your browser `http://localhost:8081/db/epub/rdfs`
+
+You can see created indexes at the bottom of the page.
 
 ## Arena
 
